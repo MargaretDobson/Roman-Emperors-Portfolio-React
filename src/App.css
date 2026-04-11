@@ -1,0 +1,36 @@
+#btn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+}
+
+#btn-primary {
+  background-color: #3b82f6; /* blue-500 */
+  color: white;
+}
+
+#btn-primary:hover {
+  background-color: #2563eb; /* darker blue */
+}
+
+#btn-primary:active {
+  transform: scale(0.95);
+}
+
+#btn-outline {
+  border: 1px solid #9ca3af;
+  color: #374151;
+  background-color: transparent;
+}
+
+#btn-outline:hover {
+  background-color: #f3f4f6;
+}
+
+#btn-active {
+  background-color: #1d4ed8;
+  color: white;
+}
