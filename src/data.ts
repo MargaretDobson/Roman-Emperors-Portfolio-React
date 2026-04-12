@@ -81,6 +81,14 @@ Nero is associated with the Great Fire of Rome in 64 CE. Though likely not respo
 
 His later rule saw heavy taxation, unrest, and rebellion. Facing capture, Nero committed suicide in 68 CE, ending the dynasty.`
   
+    },
+    {
+        id: 6,
+        name: "Commodus",
+        reign: "180–192 AD",
+        period: "Roman Empire (Nerva–Antonine Dynasty)",
+        achievements: "Ruled as a highly erratic and self-indulgent emperor, obsessed with personal glory and spectacle.",
+        description: "Commodus, the son of Marcus Aurelius, is often remembered as one of Rome’s most unstable and self-absorbed emperors. Unlike his father, who was known for discipline and philosophical thinking, Commodus showed little interest in governance and instead focused on his own image and entertainment. He believed himself to be the reincarnation of Hercules and frequently appeared in public dressed as the hero, carrying a club and wearing a lion skin. Commodus shocked Roman society by fighting in the gladiatorial arena, something considered disgraceful for an emperor, though his matches were carefully staged to ensure his victory. He renamed Rome after himself and attempted to reshape the empire around his identity. His rule was marked by paranoia, purges, and executions of those he suspected of disloyalty. As his behavior became increasingly erratic, political instability grew, and corruption flourished within the government. Commodus was eventually assassinated in 192 AD, bringing an end to his chaotic reign and marking the beginning of a turbulent period for the Roman Empire."
     }
 ];
 
