@@ -1,8 +1,26 @@
 This is a react portfolio project about significant roman emporers. NO vibe code used.
 
-12/04/2026
 
 ------CHANGES------
+
+14/04/2026
+
+Started working on player selection logic in the Select players logic (src/components/SelectPlayers),
+added a game board place holder.
+
+Game idea is simple, you have to beat the opposite team 
+using your two player who have access to four types of move sets
+each player is stronger in one type of move set etc. caligula is best
+at "psychopath" moves. 
+You must balance the two judges so that they both approve and allow you
+to carry out the specified move. E.g. caligula makes move "poison your water system"
+Aurelius does not approve but tiberius does aurelius blocks it, tiberius says go ahead
+if one judge is stronger the move is blocked or approved
+alexander the great is the final boss
+
+qualities are psychopath, honour, intelligent, ruthless
+
+--------------
 
 13/04/2026
 Fixed tabs to dynamically show rulers conditionally and updated style to render position dynamically
