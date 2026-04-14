@@ -1,11 +1,11 @@
-import TabButtons from "./components/TabButtons"
-import SelectPlayers from "./components/SelectPlayers"
+// import TabButtons from "./components/TabButtons"
+import Game from "./components/gameComponents.tsx/Game"
 function App() {
   
   return (
     <>
-      <TabButtons />
-      <SelectPlayers />
+      {/* <TabButtons /> */}
+      <Game />
     </>
   )
 }

@@ -11,8 +11,6 @@ export default function TabButtons(){
         setTabIsVisible(prev => !prev);
     }
 
-    
-
     return(
         <> 
             <div className="timeline">
