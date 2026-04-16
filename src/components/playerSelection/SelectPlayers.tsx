@@ -1,41 +1,59 @@
 import romanEmperors from "../../data";
 import { useState } from "react";
+import ConfirmPlayer from "./ConfirmPlayer";
+import TeamOne from "../teamComponents/teamOne";
 
 export default function SelectPlayers(){
     const [playerName, setPlayerName] = useState({id: 0, name: ""})
-    
+    const [confirmPlayer, setConfirmPlayer] = useState(false)
+    const [selectPlayer, setSelectPlayer] = useState(false)
    
-    function handleClick(id: number){
-      // change this later to be less lines
-        const mapPlayer = new Map(romanEmperors.map(data => [data.id, data.name])) // get player name
-        const randID = Math.floor(Math.random() * mapPlayer.size) // get a random player id
-        const player = mapPlayer.get(randID) ?? "" // get the name associated with the ID
-        
-        //setting player 1
-        setPlayerName((prev => ({...prev, id: randID, name: player}))) //Update player selected
-        
+    function handleClick(id: number, name: string){
+        setPlayerName(prev => ({...prev, id: id, name: name})) // select first player
+        setSelectPlayer(prev => !prev)
     }
-    
+
+    function handleConfirm(choice: boolean){
+        if(choice){
+            setConfirmPlayer(prev => !prev)
+        }
+        else{
+            setSelectPlayer(prev => !prev)
+        }
+    }
     
     return (
 
         <div>
-            <div>
-                <p>team 1</p>
+            {romanEmperors.map(
+                ruler => (
                     <div>
-                        <p>Player 1</p>
-                        <p>{playerName.name}</p>
                         <button
-                        key={romanEmperors[0].id}
+                        key={ruler.id}
                         // id of button passed to click handler here
-                        onClick={() => handleClick(romanEmperors[0].id)}
+                        onClick={() => handleClick(ruler.id, ruler.name)}
                         id="btn"
-                        >Random</button>
+                        >{ruler.name}</button>                       
                     </div>
-            </div>   
+                    
+                )
+            )}
 
-            <p>team 2</p>
-            <p>judges</p>
+            <ConfirmPlayer 
+                confirmName={playerName.name} 
+                confirmChoice={handleConfirm} 
+                choosePlayer={selectPlayer}
+            />
+
+            {confirmPlayer && playerName && (
+                <TeamOne
+                    confirmedPlayer={{
+                        name: playerName.name,
+                        id: playerName.id,
+                        confirmed: confirmPlayer
+                    }}
+                    />
+            )}
         </div>
     )
 }

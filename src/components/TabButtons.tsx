@@ -10,7 +10,7 @@ export default function TabButtons(){
         setIdEmperor((prev => ({...prev, id: id}))) 
         setTabIsVisible(prev => !prev);
     }
-
+    
     return(
         <> 
             <div className="timeline">

@@ -3,6 +3,10 @@ This is a react portfolio project about significant roman emporers. NO vibe code
 
 ------CHANGES------
 
+16/04/2026
+
+Player selection logic finished. Now moving on to team logic. Fixed up some messy state
+
 14/04/2026
 
 Started working on player selection logic in the Select players logic (src/components/SelectPlayers),
