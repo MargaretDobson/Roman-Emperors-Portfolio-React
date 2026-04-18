@@ -1,19 +1,18 @@
-import { useState, useEffect } from "react"
+type ConfirmPlayerProps = {
+  confirmName?: string;
+  confirmID?: number;
+  confirmChoice?: boolean;
+};
 
-export default function TeamOne({confirmedPlayer}) {
-    const [playerOne, setPlayerOne] = useState("Player 1")
-    const [playerTwo, setPlayerTwo] = useState("Player 2")
 
-        useEffect(() => {
-        if (!confirmedPlayer?.confirmed) return
+export default function TeamOne({confirmName, confirmID, confirmChoice}: ConfirmPlayerProps) {
 
-        setPlayerOne(confirmedPlayer.name)
-        }, [confirmedPlayer])
+    
 
     return(
         <div>
-            <p>{playerOne}</p>
-            <p>{playerTwo}</p>
+            <div>{confirmChoice ? <div>{confirmName}</div> : "Player 1"}</div>
+            <div>{confirmChoice ? <div>{confirmName}</div> : "Player 2"}</div>
         </div>
     )
 }
