@@ -3,25 +3,26 @@ import { useState } from "react";
 import ConfirmPlayer from "./ConfirmPlayer";
 import TeamOne from "../teamComponents/teamOne";
 
-export default function SelectPlayers(){
+type ConfirmProps = {
+    switchPlayer: boolean;
+    buttonDisplay: () => void;
+}
+
+export default function SelectPlayers({switchPlayer, buttonDisplay}: ConfirmProps){
     const [playerName, setPlayerName] = useState({id: 0, name: ""})
     const [confirmPlayer, setConfirmPlayer] = useState(false)
     const [selectPlayer, setSelectPlayer] = useState(false)
-
-    const [teamMemberSelect, setTeamMemberSelect] = useState(true)
-    const [playerValue, setPlayerValue] = useState()
-   
-    function handleClick(id: number, name: string){
-        setPlayerName(prev => ({...prev, id: id, name: name})) // select first player
+    
+    function handleClick(id: number, name: string){ // player selection
+        setPlayerName(prev => ({...prev, id: id, name: name})) 
         setSelectPlayer(prev => !prev)
-        
     }
     
 
-    function handleConfirm(choice: boolean){
+    function handleConfirm(choice: boolean){ // player confirmation
         if(choice){
             setConfirmPlayer(true)
-            
+            buttonDisplay()
         }
         else{
             setSelectPlayer(false)
@@ -31,21 +32,18 @@ export default function SelectPlayers(){
     return (
 
         <div>
-            <p>Select your first Player</p>
-
-
+            {switchPlayer ? <p>Select your first Player</p> : null}
+            {!switchPlayer ? <p>Select your second Player</p> : null}
             {romanEmperors.map(
-                ruler => (
-                    <div> {teamMemberSelect ? 
+                ruler => ( 
+                    <div> 
                         <button
                         key={ruler.id}
                         // id of button passed to click handler here
                         onClick={() => handleClick(ruler.id, ruler.name)}
                         id="btn"
-                        >{ruler.name}</button>
-                    : null}             
-                    </div>
-                    
+                        >{ruler.name}</button>           
+                    </div>                   
                 )
             )}
 
