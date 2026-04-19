@@ -1,18 +1,18 @@
 type ConfirmPlayerProps = {
-  confirmName?: string;
+  playerName?: string;
   confirmID?: number;
   confirmChoice?: boolean;
 };
 
 
-export default function TeamOne({confirmName, confirmID, confirmChoice}: ConfirmPlayerProps) {
+export default function TeamOne({playerName, confirmID, confirmChoice}: ConfirmPlayerProps) {
 
     
 
     return(
         <div>
-            <div>{confirmChoice ? <div>{confirmName}</div> : "Player 1"}</div>
-            <div>{confirmChoice ? <div>{confirmName}</div> : "Player 2"}</div>
+            <div>{confirmChoice ? <div>{playerName}</div> : "Player 1"}</div>
+            <div>{confirmChoice ? <div>{playerName}</div> : "Player 2"}</div>
         </div>
     )
 }

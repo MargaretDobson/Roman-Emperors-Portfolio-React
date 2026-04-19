@@ -9,6 +9,7 @@ Fixed state order logic
 
 18/04/2026
 
+Added in some switching logic for player 1 and 2
 Team logic progress, fixing some player selection logic
 
 16/04/2026
