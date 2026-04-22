@@ -5,7 +5,7 @@ import ConfirmPlayer from "./ConfirmPlayer"
 
 export default function PlayerSelectionScreen(){
     // passed to team
-    const [selectPlayerOne, setSelectPlayerOne] = useState()
+    const [selectPlayerOne, setSelectPlayerOne] = useState({name: ""})
     const [selectPlayerTwo, setSelectPlayerTwo] = useState()
     const [teamMemberSelect, setTeamMemberSelect] = useState(true)
     // passed to player select
@@ -17,6 +17,22 @@ export default function PlayerSelectionScreen(){
     function handleClick(id: number, name: string){ // player selection
         setPlayerName(prev => ({...prev, id: id, name: name})) 
         setSelectPlayer(prev => !prev)
+    }
+
+    function handlePlayerOne(choice: boolean){
+        console.log("Player 1")
+        // if confirm is true set this one to the player name
+        if(choice){
+            setSelectPlayerOne(prev => ({...prev, name: playerName}))
+        }
+        
+    }
+
+    function handlePlayerTwo(choice: boolean, name: string){
+        console.log("Player 2")
+        if(choice){
+            setSelectPlayerTwo(() => {name})
+        }
     }
     
     
@@ -44,8 +60,9 @@ export default function PlayerSelectionScreen(){
                 />
                 <TeamOne 
                     playerName={playerName.name} 
-                    confirmID={playerName.id} 
                     confirmChoice={confirmPlayer}
+                    playerOne={handlePlayerOne}
+                    playerTwo={handlePlayerTwo}
                 />
                 <ConfirmPlayer 
                     confirmName={playerName.name} 

@@ -2,7 +2,7 @@ import romanEmperors from "../../data";
 
 type ConfirmProps = {
     switchPlayer: boolean;
-    handleSelect: (id: number, name: string) => void
+    handleSelect: (id: number, name: string) => void;
     handleSwitch: () => void;
 }
 
@@ -10,7 +10,7 @@ export default function SelectPlayers({switchPlayer, handleSelect, handleSwitch}
     
     return (
 
-        <div>
+        <div  className="buttonGrid">
             {switchPlayer ? <p>Select your first Player</p> : null}
             {!switchPlayer ? <p>Select your second Player</p> : null}
             {romanEmperors.map(
@@ -20,7 +20,7 @@ export default function SelectPlayers({switchPlayer, handleSelect, handleSwitch}
                         key={ruler.id}
                         // id of button passed to click handler here
                         onClick={() => handleSelect(ruler.id, ruler.name)}
-                        id="btn"
+                        id="button"
                         >{ruler.name}</button>           
                     </div>                   
                 )
