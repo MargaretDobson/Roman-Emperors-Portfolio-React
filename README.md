@@ -3,6 +3,11 @@ This is a react portfolio project about significant roman emporers. NO vibe code
 
 ------CHANGES------
 
+24/04/2026
+
+-Changed gameboard style, added forced times new roman font
+-Added gradient button style
+
 23/04/2026
 
 Added some team handling logic but pausing logic to work on UX for a bit

@@ -13,12 +13,12 @@ export default function TeamOne({playerOne, playerTwo, playerName, confirmChoice
 
     return(
         <div>
-            <div>{confirmChoice ? 
-                <div>{playerOne.name}</div> : 
+            <div className="fontcolour">{confirmChoice ? 
+                <p>{playerOne.name}</p> : 
                 "Player 1"}</div>
 
-            <div>{confirmChoice ? 
-                <div>{playerTwo.name}</div> : 
+            <div className="fontcolour">{confirmChoice ? 
+                <p>{playerTwo.name}</p> : 
                 "Player 2"}</div>
         </div>
     )
