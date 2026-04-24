@@ -5,6 +5,11 @@ This is a react portfolio project about significant roman emporers. NO vibe code
 
 24/04/2026
 
+Bug fixed. Time to work on screen 2
+Current bug: confirm buttons still there before choosing second player
+Second bug: confrimation message exhibiting same behviour
+
+-Cleaned up some mess in state, added switching logic between players
 -Changed gameboard style, added forced times new roman font
 -Added gradient button style
 

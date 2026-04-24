@@ -28,15 +28,15 @@ export default function PlayerSelectionScreen(){
     }
 
     function handleConfirm(choice: boolean){ // player confirmation
-        if(choice){
+        if(choice){ // handle yes
             setConfirmPlayer(true)
             setSwitchPlayers(prev => !prev)
+            setSelectPlayer(false) // sets confirm buttons to null after choice is made
         }
-        else{
+        else if(!choice){ // handle no
             setConfirmPlayer(false)
         }
     }
-
 
 
     return(

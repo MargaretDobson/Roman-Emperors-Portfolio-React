@@ -7,19 +7,16 @@ type ConfirmPlayerProps = {
 
 export default function TeamOne({playerOne, playerTwo, switchPlayer}: ConfirmPlayerProps) {
 
-    
-
     return(
         <div>
             <div>
-                {switchPlayer ? 
-                <p>{playerOne}</p> : 
-                "Player 1"}
+                <p>Player 1</p>
+                {playerOne}
             </div>
 
-            <div>{!switchPlayer ? 
-                <p>{playerTwo}</p> : 
-                "Player 2"}
+            <div>
+                <p>Player 2</p>
+                {playerTwo}
             </div>
         </div>
     )
