@@ -24,6 +24,8 @@
   text-decoration: none;
 }
 
+/* white button */
+
 .btn-basic{
   background-image: linear-gradient(to right, #430f58 0%, #430f58 51%, #430f58 100%);
 }

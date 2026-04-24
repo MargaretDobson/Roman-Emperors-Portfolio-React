@@ -3,7 +3,11 @@ import TeamOne from "../teamComponents/teamOne"
 import { useState } from "react"
 import ConfirmPlayer from "./ConfirmPlayer"
 
-export default function PlayerSelectionScreen(){
+type FinishedSelection = {
+    finalSelection: (finished: boolean) => void;
+}
+
+export default function PlayerSelectionScreen({finalSelection}: FinishedSelection){
     // passed to team
     const [selectPlayerOne, setSelectPlayerOne] = useState({name: ""})
     const [selectPlayerTwo, setSelectPlayerTwo] = useState({name: ""})
@@ -38,6 +42,10 @@ export default function PlayerSelectionScreen(){
         }
     }
 
+    function handleTeamConfirm(){
+       finalSelection(true)
+    }
+
 
     return(
 
@@ -47,9 +55,10 @@ export default function PlayerSelectionScreen(){
                     switchPlayer={switchPlayers}
                 />
                 <TeamOne 
-                    switchPlayer={switchPlayers}
                     playerOne={selectPlayerOne.name}
                     playerTwo={selectPlayerTwo.name}
+                    choosePlayer={selectPlayer}
+                    confirmTeam={handleTeamConfirm}
                 />
                 <ConfirmPlayer 
                     confirmName={playerName.name} 

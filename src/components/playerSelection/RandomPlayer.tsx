@@ -1,9 +1,18 @@
-
+import romanEmperors from "../../data"
 
 export default function RandomPlayer(){
+
+    function handleRandom(){
+        // placeholder
+    }
+
     return(
         <div>
-            <p>random selection placeholder</p>
+            {romanEmperors.map(
+                ruler => (
+                    <></>
+                )
+            )}
         </div>
     )
 }
