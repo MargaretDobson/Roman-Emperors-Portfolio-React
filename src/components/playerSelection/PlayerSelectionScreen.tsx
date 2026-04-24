@@ -6,8 +6,8 @@ import ConfirmPlayer from "./ConfirmPlayer"
 export default function PlayerSelectionScreen(){
     // passed to team
     const [selectPlayerOne, setSelectPlayerOne] = useState({name: ""})
-    const [selectPlayerTwo, setSelectPlayerTwo] = useState()
-    const [teamMemberSelect, setTeamMemberSelect] = useState(true)
+    const [selectPlayerTwo, setSelectPlayerTwo] = useState({name: ""})
+    const [switchPlayers, setSwitchPlayers] = useState(true)
     // passed to player select
     const [playerName, setPlayerName] = useState({id: 0, name: ""})
     const [selectPlayer, setSelectPlayer] = useState(false)
@@ -17,52 +17,39 @@ export default function PlayerSelectionScreen(){
     function handleClick(id: number, name: string){ // player selection
         setPlayerName(prev => ({...prev, id: id, name: name})) 
         setSelectPlayer(prev => !prev)
-    }
 
-    function handlePlayerOne(choice: boolean){
-        console.log("Player 1")
-        // if confirm is true set this one to the player name
-        if(choice){
-            setSelectPlayerOne(prev => ({...prev, name: playerName}))
+        if(switchPlayers) { // sets player 1 switch
+            setSelectPlayerOne(prev => ({...prev, name: name}))
+        } 
+        else if(!switchPlayers){ // sets player 2 switch
+            setSelectPlayerTwo(prev => ({...prev, name: name}))
         }
         
-    }
-
-    function handlePlayerTwo(choice: boolean, name: string){
-        console.log("Player 2")
-        if(choice){
-            setSelectPlayerTwo(() => {name})
-        }
-    }
-    
-    
-    function handleTeamMember(){
-        setTeamMemberSelect(prev => !prev)
-        console.log(teamMemberSelect)
     }
 
     function handleConfirm(choice: boolean){ // player confirmation
         if(choice){
             setConfirmPlayer(true)
+            setSwitchPlayers(prev => !prev)
         }
         else{
             setConfirmPlayer(false)
         }
     }
 
+
+
     return(
 
             <div>
                 <SelectPlayers 
-                    switchPlayer={teamMemberSelect}
                     handleSelect={handleClick}
-                    handleSwitch={handleTeamMember}
+                    switchPlayer={switchPlayers}
                 />
                 <TeamOne 
-                    playerName={playerName.name} 
-                    confirmChoice={confirmPlayer}
-                    playerOne={handlePlayerOne}
-                    playerTwo={handlePlayerTwo}
+                    switchPlayer={switchPlayers}
+                    playerOne={selectPlayerOne.name}
+                    playerTwo={selectPlayerTwo.name}
                 />
                 <ConfirmPlayer 
                     confirmName={playerName.name} 

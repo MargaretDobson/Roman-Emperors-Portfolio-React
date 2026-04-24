@@ -14,12 +14,14 @@ export default function ConfirmPlayer({confirmName, confirmChoice, choosePlayer}
                 { choosePlayer ? // confirmation logic
                 <div>
                     <button
+                        className="btn-grad"
                         onClick={handleYes}
                     >Yes</button>
                     <button
+                        className="btn-grad"
                         onClick={handleNo}
                     >No</button>
-                    <p>{"Select " + confirmName + "?"}</p>
+                    <p className="fontcolour">{"Select " + confirmName + "?"}</p>
                 </div>
             : null}
             </div>      

@@ -23,3 +23,22 @@
   color: #fff;
   text-decoration: none;
 }
+
+.btn-basic{
+  background-image: linear-gradient(to right, #430f58 0%, #430f58 51%, #430f58 100%);
+}
+
+.btn-basic-grad {
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: black;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+  outline: none;
+  border: none;
+}

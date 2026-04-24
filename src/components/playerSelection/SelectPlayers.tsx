@@ -3,22 +3,35 @@ import romanEmperors from "../../data";
 type ConfirmProps = {
     switchPlayer: boolean;
     handleSelect: (id: number, name: string) => void;
-    handleSwitch: () => void;
+    handleSwitch?: () => void;
 }
 
-export default function SelectPlayers({switchPlayer, handleSelect, handleSwitch}: ConfirmProps){
+export default function SelectPlayers({switchPlayer, handleSelect}: ConfirmProps){
     
     return (
 
         <div>
-            {switchPlayer ? <p className="fontcolour">Select your first Player</p> : null}
-            {!switchPlayer ? <p className="fontcolour">Select your second Player</p> : null}
+            {switchPlayer ? 
+                <div>
+                    <button 
+                        className="btn-basic-grad"
+                    >Select your first Player
+                    </button> 
+                </div>    
+            : null}
+            {!switchPlayer ? 
+                <div>
+                    <button 
+                        className="btn-basic-grad">Select your second Player
+                    </button>
+                </div>
+            : null}
+
             {romanEmperors.map(
                 ruler => ( 
-                    <div> 
+                    <div key={ruler.id}> 
                         <button
                         className="btn-grad"
-                        key={ruler.id}
                         // id of button passed to click handler here
                         onClick={() => handleSelect(ruler.id, ruler.name)}
                         id="button"
