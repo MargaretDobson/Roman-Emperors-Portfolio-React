@@ -3,6 +3,10 @@ This is a react portfolio project about significant roman emporers. NO vibe code
 
 ------CHANGES------
 
+25/04/2026
+
+Installed cypress for E2E tests
+
 24/04/2026
 
 Bug fixed. Time to work on screen 2

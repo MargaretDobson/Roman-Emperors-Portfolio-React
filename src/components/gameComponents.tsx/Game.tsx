@@ -1,5 +1,6 @@
 import PlayerSelectionScreen from "../playerSelection/PlayerSelectionScreen"
 import RandomPlayer from "../playerSelection/RandomPlayer"
+import TeamOne from "../teamComponents/teamOne"
 import { useState } from "react"
 import "./buttons.css"
 import "./gameboard.css"
@@ -19,11 +20,12 @@ export default function Game(){
         <div className="container">
             <div className="gameboard">
                 <div>
-                    {/* {selectPlayerScreen && 
+                    {selectPlayerScreen && 
                         <PlayerSelectionScreen
                         finalSelection={handleSelection}
-                    />
-                    } */}
+                    />}
+
+
 
                     <RandomPlayer/>
                     
