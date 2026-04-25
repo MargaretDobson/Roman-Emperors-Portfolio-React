@@ -1,4 +1,4 @@
-import romanEmperors from "../../data";
+import romanEmperors from "../../../data";
 
 type ConfirmProps = {
     switchPlayer: boolean;

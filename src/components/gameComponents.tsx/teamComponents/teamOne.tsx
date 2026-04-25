@@ -1,9 +1,9 @@
 import "./team-style.css"
 
 type ConfirmPlayerProps = {
-  playerOne: string;
-  playerTwo: string;
-  choosePlayer: boolean;
+  playerOne?: string;
+  playerTwo?: string;
+  choosePlayer?: boolean;
   confirmTeam: (finished: boolean) => void;
 };
 

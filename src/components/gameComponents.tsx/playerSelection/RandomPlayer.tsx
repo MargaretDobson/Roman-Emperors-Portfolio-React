@@ -1,4 +1,4 @@
-import romanEmperors from "../../data"
+import romanEmperors from "../../../data"
 
 export default function RandomPlayer(){
 

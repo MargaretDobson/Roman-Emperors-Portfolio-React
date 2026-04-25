@@ -4,10 +4,11 @@ import "./gameboard.css"
 
 type ConfirmPlay = {
     screenProgress: () => void;
+    openRules: () => void
 }
 
 
-export default function InitialiseGame({screenProgress}: ConfirmPlay){
+export default function InitialiseGame({screenProgress, openRules}: ConfirmPlay){
     return(
         <>
             <div>
@@ -17,6 +18,10 @@ export default function InitialiseGame({screenProgress}: ConfirmPlay){
                     onClick={screenProgress}
                     className="btn-grad"
                 >Play</button>
+                <button
+                    className="btn-grad"
+                    onClick={openRules}
+                >Rules</button>
             </div>
         </>
     )

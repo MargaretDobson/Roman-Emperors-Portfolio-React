@@ -5,7 +5,11 @@ This is a react portfolio project about significant roman emporers. NO vibe code
 
 25/04/2026
 
-Installed cypress for E2E tests
+-Deleted some un needed code and components
+-Fixed some styling
+-Added some initialising game logic
+-Make architectural changes
+-Installed cypress for E2E tests
 
 24/04/2026
 

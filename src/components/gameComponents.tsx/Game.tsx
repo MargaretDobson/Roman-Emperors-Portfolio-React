@@ -1,7 +1,7 @@
-import PlayerSelectionScreen from "../playerSelection/PlayerSelectionScreen"
-import RandomPlayer from "../playerSelection/RandomPlayer"
+import PlayerSelectionScreen from "./playerSelection/PlayerSelectionScreen"
+//import RandomPlayer from "./playerSelection/RandomPlayer"
 import Rules from "./Rules"
-import TeamOne from "../teamComponents/teamOne"
+//import TeamOne from "./teamComponents/teamOne"
 import InitialiseGame from "./InitialiseGame"
 import { useState } from "react"
 import "./buttons.css"
@@ -11,7 +11,7 @@ import "./gameboard.css"
 export default function Game(){
 
     const [selectPlayerScreen, setSelectPlayerScreen] = useState(true)
-    const [screenProgression, setScreenProgression] = useState(0)
+    const [screenProgression, setScreenProgression] = useState(null)
     const [viewRules, setViewRules] = useState(false)
 
     function handleSelection(finished: boolean){
@@ -21,36 +21,34 @@ export default function Game(){
     }
 
     function handleScreenProgression(){
-        if(screenProgression === 0){
-            setScreenProgression(prev => (prev === 0 ? 1 : prev))
-        }
-        else if(screenProgression === 1){
-            setScreenProgression(prev => (prev === 1 ? 2 : prev))
-        }
+        
+    }
+
+    function handleRules(){
+        setViewRules(prev => (prev ? prev : true))
     }
 
     return(
         <div className="container">
             <div className="gameboard">
                 <div>
-                    {screenProgression === 0 ? 
-                        <InitialiseGame 
-                            screenProgress={handleScreenProgression}
-                        />
-                    : null}
-
-                    {screenProgression === 1 ? 
-                        <Rules
-                            screenProgress={handleScreenProgression}
-                        />
-                    : null}
+                    {/* header placeholder */}
                     
-                    {selectPlayerScreen && (screenProgression === 2) ?
+                    <InitialiseGame 
+                        screenProgress={handleScreenProgression}
+                        openRules={handleRules}
+                    />
+                
+                    <Rules
+                        screenProgress={handleScreenProgression}
+                    />
+                    
+                    {selectPlayerScreen ?
                         <PlayerSelectionScreen
                         finalSelection={handleSelection}
                     /> 
                     : null}
-                    <RandomPlayer/>
+                    {/* footer placeholder */}
                 </div>
             </div>
         </div>    
