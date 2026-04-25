@@ -1,4 +1,4 @@
-import romanEmperors from "../data.ts";
+import romanEmperors from "../../data.ts";
 import { useState } from "react";
 
 export default function LearnMore({ident}: {ident: number}){

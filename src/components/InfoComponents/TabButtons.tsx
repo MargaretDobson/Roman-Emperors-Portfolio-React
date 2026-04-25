@@ -1,4 +1,4 @@
-import romanEmperors from "../data.ts";
+import romanEmperors from "../../data.ts";
 import { useState } from "react";
 import LearnMore from "./LearnMore.tsx";
 
