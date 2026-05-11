@@ -1,9 +1,12 @@
 // how to play, and rules
+
 type RuleProps = {
-    screenProgress: () => void;
+    loadRules?: boolean;
+    handleViewRules: () => void;
 }
 
-export default function Rules({screenProgress}: RuleProps){
+export default function Rules({loadRules, handleViewRules}: RuleProps){
+
     return(
         <>
             <ul>
@@ -24,7 +27,7 @@ export default function Rules({screenProgress}: RuleProps){
                 </li>
                 <li>
                     <button
-                        onClick={screenProgress}
+                        onClick={handleViewRules}
                     >Back</button>
                 </li>
                 <li></li>

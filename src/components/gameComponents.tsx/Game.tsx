@@ -1,8 +1,8 @@
 import PlayerSelectionScreen from "./playerSelection/PlayerSelectionScreen"
 //import RandomPlayer from "./playerSelection/RandomPlayer"
-import Rules from "./Rules"
-//import TeamOne from "./teamComponents/teamOne"
-import InitialiseGame from "./InitialiseGame"
+// import Rules from "./Rules"
+// import TeamOne from "./teamComponents/teamOne"
+// import InitialiseGame from "./InitialiseGame"
 import { useState } from "react"
 import "./buttons.css"
 import "./gameboard.css"
@@ -24,8 +24,13 @@ export default function Game(){
         
     }
 
+    // view rules
     function handleRules(){
         setViewRules(prev => (prev ? prev : true))
+        const changeOverLay = () => ({
+            zIndex: 10
+        })
+        return(changeOverLay)
     }
 
     return(
@@ -34,14 +39,14 @@ export default function Game(){
                 <div>
                     {/* header placeholder */}
                     
-                    <InitialiseGame 
+                    {/* <InitialiseGame 
                         screenProgress={handleScreenProgression}
-                        openRules={handleRules}
                     />
                 
                     <Rules
-                        screenProgress={handleScreenProgression}
-                    />
+                        loadRules={viewRules}
+                        handleViewRules={handleRules}
+                    /> */}
                     
                     {selectPlayerScreen ?
                         <PlayerSelectionScreen

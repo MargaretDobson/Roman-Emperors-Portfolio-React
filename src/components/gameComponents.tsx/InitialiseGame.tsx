@@ -1,14 +1,14 @@
 //component initially rendered when playing
 import "./buttons.css"
 import "./gameboard.css"
+import Rules from "./Rules"
 
 type ConfirmPlay = {
     screenProgress: () => void;
-    openRules: () => void
 }
 
 
-export default function InitialiseGame({screenProgress, openRules}: ConfirmPlay){
+export default function InitialiseGame({screenProgress}: ConfirmPlay){
     return(
         <>
             <div>
@@ -18,10 +18,6 @@ export default function InitialiseGame({screenProgress, openRules}: ConfirmPlay)
                     onClick={screenProgress}
                     className="btn-grad"
                 >Play</button>
-                <button
-                    className="btn-grad"
-                    onClick={openRules}
-                >Rules</button>
             </div>
         </>
     )

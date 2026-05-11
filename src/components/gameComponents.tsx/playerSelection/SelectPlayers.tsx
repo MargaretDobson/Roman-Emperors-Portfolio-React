@@ -1,4 +1,5 @@
 import romanEmperors from "../../../data";
+import { useState } from "react";
 
 type ConfirmProps = {
     switchPlayer: boolean;
@@ -7,6 +8,11 @@ type ConfirmProps = {
 }
 
 export default function SelectPlayers({switchPlayer, handleSelect}: ConfirmProps){
+    const [handleMap, setHandleMap] = useState(new Map(romanEmperors.map(data => [data.id, data.name])))
+
+    function handleDelete(handleSelect){
+        console.log(handleSelect)
+    }
     
     return (
 
@@ -27,18 +33,19 @@ export default function SelectPlayers({switchPlayer, handleSelect}: ConfirmProps
                 </div>
             : null}
 
-            {romanEmperors.map(
-                ruler => ( 
-                    <div key={ruler.id}> 
+            {[...handleMap].map(
+                 ([id, name]) => (
+                    <div key={id}> 
                         <button
                         className="btn-grad"
                         // id of button passed to click handler here
-                        onClick={() => handleSelect(ruler.id, ruler.name)}
+                        onClick={() => handleSelect(id, name)}
                         id="button"
-                        >{ruler.name}</button>           
-                    </div>                   
+                        >{name}</button>           
+                    </div> 
+                 ) 
                 )
-            )}     
+            }
         </div>
     )
 }
