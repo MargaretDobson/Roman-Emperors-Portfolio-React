@@ -5,14 +5,11 @@ type ConfirmProps = {
     switchPlayer: boolean;
     handleSelect: (id: number, name: string) => void;
     handleSwitch?: () => void;
+    mapPlayers: Map<number, string>;
 }
 
-export default function SelectPlayers({switchPlayer, handleSelect}: ConfirmProps){
-    const [handleMap, setHandleMap] = useState(new Map(romanEmperors.map(data => [data.id, data.name])))
-
-    function handleDelete(handleSelect){
-        console.log(handleSelect)
-    }
+export default function SelectPlayers({switchPlayer, handleSelect, mapPlayers}: ConfirmProps){
+    
     
     return (
 
@@ -33,7 +30,7 @@ export default function SelectPlayers({switchPlayer, handleSelect}: ConfirmProps
                 </div>
             : null}
 
-            {[...handleMap].map(
+            {[...mapPlayers].map(
                  ([id, name]) => (
                     <div key={id}> 
                         <button

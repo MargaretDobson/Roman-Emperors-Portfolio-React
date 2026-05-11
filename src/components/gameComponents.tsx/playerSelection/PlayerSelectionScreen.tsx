@@ -2,6 +2,7 @@ import SelectPlayers from "./SelectPlayers"
 import TeamOne from "../teamComponents/teamOne"
 import { useState } from "react"
 import ConfirmPlayer from "./ConfirmPlayer"
+import romanEmperors from "../../../data"
 
 type FinishedSelection = {
     finalSelection: (finished: boolean) => void;
@@ -15,12 +16,18 @@ export default function PlayerSelectionScreen({finalSelection}: FinishedSelectio
     // passed to player select
     const [playerName, setPlayerName] = useState({id: 0, name: ""})
     const [selectPlayer, setSelectPlayer] = useState(false)
+    const [handleMap, setHandleMap] = useState(new Map(romanEmperors.map(data => [data.id, data.name])))
     // passed to confirm
      const [confirmPlayer, setConfirmPlayer] = useState(false)
     
     function handleClick(id: number, name: string){ // player selection
         setPlayerName(prev => ({...prev, id: id, name: name})) 
         setSelectPlayer(prev => !prev)
+        setHandleMap(prev => { // delete player from map
+            const updated = new Map(prev);
+            updated.delete(id);
+            return updated;
+        })
 
         if(switchPlayers) { // sets player 1 switch
             setSelectPlayerOne(prev => ({...prev, name: name}))
@@ -53,6 +60,7 @@ export default function PlayerSelectionScreen({finalSelection}: FinishedSelectio
                 <SelectPlayers 
                     handleSelect={handleClick}
                     switchPlayer={switchPlayers}
+                    mapPlayers={handleMap}
                 />
                 <TeamOne 
                     playerOne={selectPlayerOne.name}
