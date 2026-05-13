@@ -1,14 +1,12 @@
-import romanEmperors from "../../../data";
-import { useState } from "react";
-
 type ConfirmProps = {
     switchPlayer: boolean;
     handleSelect: (id: number, name: string) => void;
     handleSwitch?: () => void;
     mapPlayers: Map<number, string>;
+    nullButtons: boolean;
 }
 
-export default function SelectPlayers({switchPlayer, handleSelect, mapPlayers}: ConfirmProps){
+export default function SelectPlayers({switchPlayer, handleSelect, mapPlayers, nullButtons}: ConfirmProps){
     
     
     return (
@@ -17,7 +15,7 @@ export default function SelectPlayers({switchPlayer, handleSelect, mapPlayers}: 
             {switchPlayer ? 
                 <div>
                     <button 
-                        className="btn-basic-grad"
+                        className="btn-white"
                     >Select your first Player
                     </button> 
                 </div>    
@@ -25,7 +23,7 @@ export default function SelectPlayers({switchPlayer, handleSelect, mapPlayers}: 
             {!switchPlayer ? 
                 <div>
                     <button 
-                        className="btn-basic-grad">Select your second Player
+                        className="btn-white">Select your second Player
                     </button>
                 </div>
             : null}
@@ -34,7 +32,7 @@ export default function SelectPlayers({switchPlayer, handleSelect, mapPlayers}: 
                  ([id, name]) => (
                     <div key={id}> 
                         <button
-                        className="btn-grad"
+                        className={ !nullButtons ? "btn-grad" : "btn-null"}
                         // id of button passed to click handler here
                         onClick={() => handleSelect(id, name)}
                         id="button"

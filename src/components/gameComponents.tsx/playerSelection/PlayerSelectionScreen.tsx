@@ -18,11 +18,12 @@ export default function PlayerSelectionScreen({finalSelection}: FinishedSelectio
     const [selectPlayer, setSelectPlayer] = useState(false)
     const [handleMap, setHandleMap] = useState(new Map(romanEmperors.map(data => [data.id, data.name])))
     // passed to confirm
-     const [confirmPlayer, setConfirmPlayer] = useState(false)
+     const [buttonIsNull, setButtonIsNull] = useState(false)
     
     function handleClick(id: number, name: string){ // player selection
         setPlayerName(prev => ({...prev, id: id, name: name})) 
         setSelectPlayer(prev => !prev)
+        setButtonIsNull(prev => true) // set button to null while confirming choice
         setHandleMap(prev => { // delete player from map
             const updated = new Map(prev);
             updated.delete(id);
@@ -39,18 +40,21 @@ export default function PlayerSelectionScreen({finalSelection}: FinishedSelectio
     }
 
     function handleConfirm(choice: boolean){ // player confirmation
-        if(choice){ // handle yes
-            setConfirmPlayer(true)
+
+        if(choice){ // confirm player 1
+            setButtonIsNull(prev => false) // set button to null
             setSwitchPlayers(prev => !prev)
-            setSelectPlayer(false) // sets confirm buttons to null after choice is made
+            setSelectPlayer(prev => false)
         }
+
         else if(!choice){ // handle no
-            setConfirmPlayer(false)
+            setButtonIsNull(prev => true)
         }
     }
 
     function handleTeamConfirm(){
        finalSelection(true)
+
     }
 
 
@@ -61,6 +65,7 @@ export default function PlayerSelectionScreen({finalSelection}: FinishedSelectio
                     handleSelect={handleClick}
                     switchPlayer={switchPlayers}
                     mapPlayers={handleMap}
+                    nullButtons={buttonIsNull}
                 />
                 <TeamOne 
                     playerOne={selectPlayerOne.name}

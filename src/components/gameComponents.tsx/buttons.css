@@ -26,11 +26,7 @@
 
 /* white button */
 
-.btn-basic{
-  background-image: linear-gradient(to right, #430f58 0%, #430f58 51%, #430f58 100%);
-}
-
-.btn-basic-grad {
+.btn-white {
   margin: 10px;
   padding: 15px 45px;
   text-align: center;
@@ -50,3 +46,22 @@
   color: #fff;
   text-decoration: none;
 }
+
+/* grey null button */
+
+.btn-null {
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  background-size: 200% auto;
+  color: rgb(48, 46, 46);
+  pointer-events: none;
+  cursor: not-allowed;
+  background-color: grey;
+  border-radius: 10px;
+  display: block;
+  outline: none;
+  border: none;
+}
+
