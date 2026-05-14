@@ -9,8 +9,12 @@ import "./gameboard.css"
 //game board that renders
 
 export default function Game(){
-
+    // team one's initialisers
     const [selectPlayerScreen, setSelectPlayerScreen] = useState(true)
+    const [selectPlayerOne, setSelectPlayerOne] = useState({name: ""})
+    const [selectPlayerTwo, setSelectPlayerTwo] = useState({name: ""})
+    const [teamOne, setTeamOne] = useState([{one: ""}, {two: ""}])
+
     const [screenProgression, setScreenProgression] = useState(null)
     const [viewRules, setViewRules] = useState(false)
 
@@ -19,6 +23,12 @@ export default function Game(){
             setSelectPlayerScreen(false)
         }
     }
+
+    function handlePlayers(){ // takes selected players from lifted state and sets them
+        console.log(selectPlayerOne)
+        console.log(selectPlayerTwo)
+    }
+
 
     function handleScreenProgression(){
         
@@ -51,8 +61,12 @@ export default function Game(){
                     {selectPlayerScreen ?
                         <PlayerSelectionScreen
                         finalSelection={handleSelection}
+                        playerOne={setSelectPlayerOne}
+                        playerTwo={setSelectPlayerTwo}
                     /> 
                     : null}
+
+
                     {/* footer placeholder */}
                 </div>
             </div>
