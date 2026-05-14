@@ -25,31 +25,34 @@ export default function PlayerSelectionScreen({finalSelection, playerOne, player
     
     function handleClick(id: number, name: string){ // player selection
         setPlayerName(prev => ({...prev, id: id, name: name})) 
-        setSelectPlayer(prev => !prev)
-        setButtonIsNull(prev => true) // set button to null while confirming choice
-        setHandleMap(prev => { // delete player from map
-            const updated = new Map(prev);
-            updated.delete(id);
-            return updated;
-        })
-
-        if(switchPlayers) { // sets player 1 name
-            playerOne(prev => ({...prev, name}));
-            console.log(playerOne)
-        } 
-        else if(!switchPlayers){ // sets player 2 name
-            playerTwo(prev => ({...prev, name: name}))
-            console.log(playerTwo)
-        }
+        setSelectPlayer(prev => !prev) // confirm button
+        setButtonIsNull(prev => true) // set button to null while confirming choice 
         
     }
 
     function handleConfirm(choice: boolean){ // player confirmation
 
+        const playerList = (id: number) => {
+            setHandleMap(prev => { // delete player from map
+                const updated = new Map(prev);
+                updated.delete(id);
+                return updated;
+            })
+        }
+
         if(choice){ 
-            setButtonIsNull(prev => false) // set button to null
-            setSwitchPlayers(prev => !prev)
-            setSelectPlayer(prev => false)
+                setButtonIsNull(prev => false) // set button to null
+                setSwitchPlayers(prev => !prev) 
+                setSelectPlayer(prev => false)  
+
+                const teamAssumption = (name: string) => {
+                    if(switchPlayers) { // sets player 1 name
+                        playerOne(prev => ({...prev, name}));``
+                    } 
+                    else if(!switchPlayers){ // sets player 2 name
+                        playerTwo(prev => ({...prev, name: name}))
+                    }
+                }
         }
 
         else if(!choice){ // handle no

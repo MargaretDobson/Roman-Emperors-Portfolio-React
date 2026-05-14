@@ -1,6 +1,6 @@
 type ConfirmPlayerProps = {
   confirmName: string;
-  confirmChoice: (choice: boolean) => void;
+  confirmChoice: (choice: boolean, id?: number, name?: string) => void;
   choosePlayer: boolean;
 };
 

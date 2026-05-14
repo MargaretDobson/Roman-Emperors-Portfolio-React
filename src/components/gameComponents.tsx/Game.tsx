@@ -26,9 +26,9 @@ export default function Game(){
 
     function handlePlayers(){ // takes selected players from lifted state and sets them
         console.log(selectPlayerOne)
-        console.log(selectPlayerTwo)
     }
 
+    handlePlayers()
 
     function handleScreenProgression(){
         
