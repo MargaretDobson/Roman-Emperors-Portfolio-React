@@ -20,12 +20,12 @@ export default function Game(){
 
     function handleSelection(finished: boolean){
         if(finished){
-            setSelectPlayerScreen(false)
+            setSelectPlayerScreen(prev => false)
         }
     }
 
     function handlePlayers(){ // takes selected players from lifted state and sets them
-        console.log(selectPlayerOne)
+       
     }
 
     handlePlayers()

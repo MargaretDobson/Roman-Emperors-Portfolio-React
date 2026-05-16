@@ -3,6 +3,13 @@ This is a react portfolio project about significant roman emporers. NO vibe code
 
 ------CHANGES------
 
+17/05/2026
+
+-Lots of bug fixes
+-Updated No logic in selection
+-Lifted and changed various state components
+
+
 25/04/2026
 
 -Deleted some un needed code and components

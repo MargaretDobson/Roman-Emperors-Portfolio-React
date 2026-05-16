@@ -17,7 +17,7 @@ export default function PlayerSelectionScreen({finalSelection, playerOne, player
 
     // passed to player select
     const [playerName, setPlayerName] = useState({id: 0, name: ""})
-    const [selectPlayer, setSelectPlayer] = useState(false)
+    const [showConfirmButton, setShowConfirmButton] = useState(false)
     const [handleMap, setHandleMap] = useState(new Map(romanEmperors.map(data => [data.id, data.name])))
 
     // passed to confirm
@@ -25,44 +25,41 @@ export default function PlayerSelectionScreen({finalSelection, playerOne, player
     
     function handleClick(id: number, name: string){ // player selection
         setPlayerName(prev => ({...prev, id: id, name: name})) 
-        setSelectPlayer(prev => !prev) // confirm button
+        setShowConfirmButton(prev => true) // confirm button
         setButtonIsNull(prev => true) // set button to null while confirming choice 
         
     }
 
     function handleConfirm(choice: boolean){ // player confirmation
-
-        const playerList = (id: number) => {
-            setHandleMap(prev => { // delete player from map
-                const updated = new Map(prev);
-                updated.delete(id);
-                return updated;
-            })
-        }
+        const playerID = playerName.id
 
         if(choice){ 
                 setButtonIsNull(prev => false) // set button to null
                 setSwitchPlayers(prev => !prev) 
-                setSelectPlayer(prev => false)  
+                setShowConfirmButton(prev => false)  
 
-                const teamAssumption = (name: string) => {
-                    if(switchPlayers) { // sets player 1 name
-                        playerOne(prev => ({...prev, name}));``
-                    } 
-                    else if(!switchPlayers){ // sets player 2 name
-                        playerTwo(prev => ({...prev, name: name}))
-                    }
+                setHandleMap(prev => { // delete player from map
+                const updated = new Map(prev)
+                updated.delete(playerID)
+                return updated;
+            })
+
+                if(switchPlayers) { // sets player 1 name
+                    playerOne(prev => ({...prev, name}))
+                } 
+                else if(!switchPlayers){ // sets player 2 name
+                    playerTwo(prev => ({...prev, name: name}))
                 }
         }
 
         else if(!choice){ // handle no
-            setButtonIsNull(prev => true)
+            setButtonIsNull(prev => false)
+            setShowConfirmButton(prev => false)
         }
     }
 
     function handleTeamConfirm(){
-       finalSelection(true)
-
+        finalSelection(true)
     }
 
 
@@ -84,7 +81,7 @@ export default function PlayerSelectionScreen({finalSelection, playerOne, player
                 <ConfirmPlayer 
                     confirmName={playerName.name} 
                     confirmChoice={handleConfirm} 
-                    choosePlayer={selectPlayer}
+                    confirmButton={showConfirmButton}
                 />
             </div>
     )

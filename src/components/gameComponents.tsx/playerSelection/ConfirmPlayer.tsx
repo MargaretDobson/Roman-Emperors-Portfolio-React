@@ -1,17 +1,17 @@
 type ConfirmPlayerProps = {
   confirmName: string;
-  confirmChoice: (choice: boolean, id?: number, name?: string) => void;
-  choosePlayer: boolean;
+  confirmChoice: (choice: boolean) => void;
+  confirmButton: boolean;
 };
 
-export default function ConfirmPlayer({confirmName, confirmChoice, choosePlayer}: ConfirmPlayerProps){
+export default function ConfirmPlayer({confirmName, confirmChoice, confirmButton}: ConfirmPlayerProps){
     const handleYes = () => confirmChoice(true)
     const handleNo = () => confirmChoice(false)
     return(
         <div>
             <div>
                 {/* confirm player */}
-                { choosePlayer ? // confirmation logic
+                { confirmButton ? // confirmation logic
                 <div>
                     <button
                         className="btn-grad"
