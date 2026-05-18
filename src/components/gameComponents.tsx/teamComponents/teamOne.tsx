@@ -1,14 +1,17 @@
-import "./team-style.css"
-
 type ConfirmPlayerProps = {
   playerOne: {name: string};
   playerTwo: {name: string};
+  confirmTeamPlayers: (confirm: boolean) => void;
 };
 
 
-export default function TeamOne({ playerOne, playerTwo }: ConfirmPlayerProps) {
+export default function TeamOne({ playerOne, playerTwo, confirmTeamPlayers }: ConfirmPlayerProps) {
 
-    
+    function handleClick(){
+        if(playerOne && playerTwo != null){
+            confirmTeamPlayers(true)
+        }
+    }
 
     return(
         <div >
@@ -21,6 +24,13 @@ export default function TeamOne({ playerOne, playerTwo }: ConfirmPlayerProps) {
                 <p >Player 2</p>
                 <p>{playerTwo.name}</p> 
             </div>
+
+            {/* Done button */}
+
+            <button
+                className="btn-white"
+                onClick={handleClick}
+            >Done</button>
 
         </div>
     )

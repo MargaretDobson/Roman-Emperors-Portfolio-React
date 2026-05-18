@@ -7,6 +7,9 @@ This is a react portfolio project about significant roman emporers. NO vibe code
 
 -Fixed logic that passes state between siblings
 -Adding Confirm Team button
+-Changed file types
+-Added state and handler for confirming team
+-Passed values to new ConfirmTeam component
 
 17/05/2026
 

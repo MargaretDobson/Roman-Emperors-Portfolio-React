@@ -2,6 +2,7 @@ import PlayerSelectionScreen from "./playerSelection/PlayerSelectionScreen"
 //import RandomPlayer from "./playerSelection/RandomPlayer"
 // import Rules from "./Rules"
 import TeamOne from "./teamComponents/teamOne"
+import ConfirmTeam from "./playerSelection/ConfirmTeam"
 // import InitialiseGame from "./InitialiseGame"
 import { useState } from "react"
 import "./buttons.css"
@@ -13,6 +14,9 @@ export default function Game(){
     const [selectPlayerScreen, setSelectPlayerScreen] = useState(true)
     const [selectPlayerOne, setSelectPlayerOne] = useState({name: ""})
     const [selectPlayerTwo, setSelectPlayerTwo] = useState({name: ""})
+
+    //confirm team button
+    const [confirmTeam, setConfirmTeam] = useState(false)
 
     const [screenProgression, setScreenProgression] = useState(null)
     const [viewRules, setViewRules] = useState(false)
@@ -34,6 +38,11 @@ export default function Game(){
         else if(!switchval){
             setSelectPlayerTwo(prev => ({...prev, name: name}))
         } 
+
+    }
+
+    function handleConfirmTeam(confirm: boolean){
+        setConfirmTeam(prev => true)
     }
 
 
@@ -53,9 +62,17 @@ export default function Game(){
                     <TeamOne 
                         playerOne={selectPlayerOne}
                         playerTwo={selectPlayerTwo}
+                        confirmTeamPlayers={handleConfirmTeam}
                     />
 
+                    {confirmTeam ? 
+                        <ConfirmTeam 
+                        playerOne={selectPlayerOne}
+                        playerTwo={selectPlayerTwo}
+                        />
+                    : null}
 
+                    
 
                     {/* footer placeholder */}
                 </div>
