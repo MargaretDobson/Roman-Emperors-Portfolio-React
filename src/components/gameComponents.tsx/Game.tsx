@@ -13,7 +13,6 @@ export default function Game(){
     const [selectPlayerScreen, setSelectPlayerScreen] = useState(true)
     const [selectPlayerOne, setSelectPlayerOne] = useState({name: ""})
     const [selectPlayerTwo, setSelectPlayerTwo] = useState({name: ""})
-    const [teamOne, setTeamOne] = useState({one: "", two: ""})
 
     const [screenProgression, setScreenProgression] = useState(null)
     const [viewRules, setViewRules] = useState(false)
@@ -32,7 +31,7 @@ export default function Game(){
         if(switchval){
             setSelectPlayerOne(prev => ({...prev, name: name}))
         }
-        else if(switchval){
+        else if(!switchval){
             setSelectPlayerTwo(prev => ({...prev, name: name}))
         } 
     }
@@ -51,7 +50,12 @@ export default function Game(){
                         /> 
                     : null}
 
-                    <TeamOne />
+                    <TeamOne 
+                        playerOne={selectPlayerOne}
+                        playerTwo={selectPlayerTwo}
+                    />
+
+
 
                     {/* footer placeholder */}
                 </div>

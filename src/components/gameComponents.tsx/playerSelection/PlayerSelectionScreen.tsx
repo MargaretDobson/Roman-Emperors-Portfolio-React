@@ -43,10 +43,10 @@ export default function PlayerSelectionScreen({ teamPlayers }: FinishedSelection
                 })
 
                 if(switchPlayers){ // sets player 1 name
-                    teamPlayers(playerValues.name, switchPlayers)
+                    teamPlayers(playerValues.name, true)
                 } 
                 else if(!switchPlayers){ // sets player 2 name
-                    teamPlayers(playerValues.name, !switchPlayers)
+                    teamPlayers(playerValues.name, false)
                 }
         }
 

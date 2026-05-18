@@ -3,6 +3,11 @@ This is a react portfolio project about significant roman emporers. NO vibe code
 
 ------CHANGES------
 
+18/05/2026
+
+-Fixed logic that passes state between siblings
+-Adding Confirm Team button
+
 17/05/2026
 
 -Lots of bug fixes
