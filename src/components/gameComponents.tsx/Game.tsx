@@ -12,6 +12,7 @@ import "./gameboard.css"
 export default function Game(){
     // team one's initialisers
     const [selectPlayerScreen, setSelectPlayerScreen] = useState(true)
+    const [buttonIsNull, setButtonIsNull] = useState(false)
     const [selectPlayerOne, setSelectPlayerOne] = useState({name: ""})
     const [selectPlayerTwo, setSelectPlayerTwo] = useState({name: ""})
 
@@ -42,7 +43,16 @@ export default function Game(){
     }
 
     function handleConfirmTeam(confirm: boolean){
-        setConfirmTeam(prev => true)
+        setConfirmTeam(prev => true) 
+    }
+
+    function handleButtonNull(isnull: boolean){
+        if(isnull){
+            setButtonIsNull(prev => false)
+        }
+        else if(!isnull){
+            setButtonIsNull(prev => true)
+        }
     }
 
 
@@ -56,6 +66,8 @@ export default function Game(){
                     {selectPlayerScreen ?
                         <PlayerSelectionScreen
                             teamPlayers={handlePlayers}
+                            buttonNuller={handleButtonNull}
+                            buttonNullValue={buttonIsNull}
                         /> 
                     : null}
 
@@ -67,8 +79,8 @@ export default function Game(){
 
                     {confirmTeam ? 
                         <ConfirmTeam 
-                        playerOne={selectPlayerOne}
-                        playerTwo={selectPlayerTwo}
+                            playerOne={selectPlayerOne}
+                            playerTwo={selectPlayerTwo}
                         />
                     : null}
 

@@ -6,9 +6,11 @@ import romanEmperors from "../../../data"
 
 type FinishedSelection = {
     teamPlayers: (name: string, switchval: boolean) => void;
+    buttonNuller: (isnull: boolean) => void;
+    buttonNullValue: boolean;
 }
 
-export default function PlayerSelectionScreen({ teamPlayers }: FinishedSelection){
+export default function PlayerSelectionScreen({ teamPlayers, buttonNuller, buttonNullValue }: FinishedSelection){
     // passed to team
     
     const [switchPlayers, setSwitchPlayers] = useState(true)
@@ -19,20 +21,21 @@ export default function PlayerSelectionScreen({ teamPlayers }: FinishedSelection
     const [handleMap, setHandleMap] = useState(new Map(romanEmperors.map(data => [data.id, data.name])))
 
     // passed to confirm
-     const [buttonIsNull, setButtonIsNull] = useState(false)
+    
+
+    
     
     function handleClick(id: number, name: string){ // player selection
         setPlayerName(prev => ({...prev, id: id, name: name})) 
         setShowConfirmButton(prev => true) // confirm button
-        setButtonIsNull(prev => true) // set button to null while confirming choice 
+        buttonNuller(true) // set button to null while confirming choice 
     }
 
     function handleConfirm(choice: boolean){ // player confirmation
         const playerValues = {id: playerName.id, name: playerName.name}
 
-
         if(choice){ 
-                setButtonIsNull(prev => false) // set button to null
+                //setButtonIsNull(prev => false) // set button to null
                 setSwitchPlayers(prev => !prev) 
                 setShowConfirmButton(prev => false)  
 
@@ -51,10 +54,11 @@ export default function PlayerSelectionScreen({ teamPlayers }: FinishedSelection
         }
 
         else if(!choice){ // handle no
-            setButtonIsNull(prev => false)
+           // setButtonIsNull(prev => false)
             setShowConfirmButton(prev => false)
         }
     }
+
 
 
     return(
@@ -64,7 +68,8 @@ export default function PlayerSelectionScreen({ teamPlayers }: FinishedSelection
                     handleSelect={handleClick}
                     switchPlayer={switchPlayers}
                     mapPlayers={handleMap}
-                    nullButtons={buttonIsNull}
+                    nullButtons={buttonNullValue}
+
                 />
                 
                 <ConfirmPlayer 

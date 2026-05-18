@@ -5,6 +5,8 @@ type ConfirmPlayerProps = {
 
 export default function ConfirmTeam({ playerOne, playerTwo }: ConfirmPlayerProps){
 
+    const handleYes = () => {"Yes"}
+    const handleNo = () => {"No"}
 
     
     return(
@@ -13,8 +15,12 @@ export default function ConfirmTeam({ playerOne, playerTwo }: ConfirmPlayerProps
             <ul>
                 <li>{playerOne.name}</li>
                 <li>{playerTwo.name}</li>
-                <button>Yes</button>
-                <button>No</button>
+                <button
+                    onClick={handleYes}
+                >Yes</button>
+                <button
+                    onClick={handleNo}
+                >No</button>
             </ul>
             
         </>

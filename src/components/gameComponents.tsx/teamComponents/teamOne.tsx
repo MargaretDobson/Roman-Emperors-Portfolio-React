@@ -8,8 +8,11 @@ type ConfirmPlayerProps = {
 export default function TeamOne({ playerOne, playerTwo, confirmTeamPlayers }: ConfirmPlayerProps) {
 
     function handleClick(){
-        if(playerOne && playerTwo != null){
+        if(playerOne.name && playerTwo.name !== null){
             confirmTeamPlayers(true)
+        }
+        else if(playerOne.name && playerTwo.name === null){
+            confirmTeamPlayers(false)
         }
     }
 

@@ -10,6 +10,8 @@ This is a react portfolio project about significant roman emporers. NO vibe code
 -Changed file types
 -Added state and handler for confirming team
 -Passed values to new ConfirmTeam component
+For tomorrow:
+-Fix button nullifying logic
 
 17/05/2026
 
