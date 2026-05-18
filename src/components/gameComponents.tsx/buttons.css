@@ -65,3 +65,10 @@
   border: none;
 }
 
+/* information button */
+
+.info-btn {
+  outline: none;
+  border: none;
+  color: #430f58 0%;
+}

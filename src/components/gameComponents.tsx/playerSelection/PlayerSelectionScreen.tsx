@@ -5,12 +5,10 @@ import ConfirmPlayer from "./ConfirmPlayer"
 import romanEmperors from "../../../data"
 
 type FinishedSelection = {
-    finalSelection: (finished: boolean) => void;
-    playerOne: React.Dispatch<React.SetStateAction<{name: string;}>>;
-    playerTwo: React.Dispatch<React.SetStateAction<{name: string;}>>;
+    teamPlayers: (name: string, switchval: boolean) => void;
 }
 
-export default function PlayerSelectionScreen({finalSelection, playerOne, playerTwo}: FinishedSelection){
+export default function PlayerSelectionScreen({ teamPlayers }: FinishedSelection){
     // passed to team
     
     const [switchPlayers, setSwitchPlayers] = useState(true)
@@ -27,11 +25,11 @@ export default function PlayerSelectionScreen({finalSelection, playerOne, player
         setPlayerName(prev => ({...prev, id: id, name: name})) 
         setShowConfirmButton(prev => true) // confirm button
         setButtonIsNull(prev => true) // set button to null while confirming choice 
-        
     }
 
     function handleConfirm(choice: boolean){ // player confirmation
-        const playerID = playerName.id
+        const playerValues = {id: playerName.id, name: playerName.name}
+
 
         if(choice){ 
                 setButtonIsNull(prev => false) // set button to null
@@ -39,16 +37,16 @@ export default function PlayerSelectionScreen({finalSelection, playerOne, player
                 setShowConfirmButton(prev => false)  
 
                 setHandleMap(prev => { // delete player from map
-                const updated = new Map(prev)
-                updated.delete(playerID)
-                return updated;
-            })
+                    const updated = new Map(prev)
+                    updated.delete(playerValues.id)
+                    return updated
+                })
 
-                if(switchPlayers) { // sets player 1 name
-                    playerOne(prev => ({...prev, name}))
+                if(switchPlayers){ // sets player 1 name
+                    teamPlayers(playerValues.name, switchPlayers)
                 } 
                 else if(!switchPlayers){ // sets player 2 name
-                    playerTwo(prev => ({...prev, name: name}))
+                    teamPlayers(playerValues.name, !switchPlayers)
                 }
         }
 
@@ -56,10 +54,6 @@ export default function PlayerSelectionScreen({finalSelection, playerOne, player
             setButtonIsNull(prev => false)
             setShowConfirmButton(prev => false)
         }
-    }
-
-    function handleTeamConfirm(){
-        finalSelection(true)
     }
 
 
@@ -72,12 +66,7 @@ export default function PlayerSelectionScreen({finalSelection, playerOne, player
                     mapPlayers={handleMap}
                     nullButtons={buttonIsNull}
                 />
-                {/* <TeamOne 
-                    playerOne={selectPlayerOne.name}
-                    playerTwo={selectPlayerTwo.name}
-                    choosePlayer={selectPlayer}
-                    confirmTeam={handleTeamConfirm}
-                /> */}
+                
                 <ConfirmPlayer 
                     confirmName={playerName.name} 
                     confirmChoice={handleConfirm} 

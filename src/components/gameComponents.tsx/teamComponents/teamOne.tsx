@@ -1,29 +1,24 @@
 import "./team-style.css"
 
 type ConfirmPlayerProps = {
-  playerOne?: string;
-  playerTwo?: string;
-  choosePlayer?: boolean;
-  confirmTeam: (finished: boolean) => void;
+  
 };
 
 
-export default function TeamOne({playerOne, playerTwo, choosePlayer, confirmTeam}: ConfirmPlayerProps) {
+export default function TeamOne({}: ConfirmPlayerProps) {
 
-    if(playerOne !== "" && playerTwo !== "" && !choosePlayer){
-        confirmTeam(true)
-    }
+    
 
     return(
         <div >
             <div className="fontcolour">
                 <p>Player 1</p>
-                <p>{playerOne}</p> 
+                <p>{}</p> 
             </div>
 
             <div className="fontcolour">
                 <p >Player 2</p>
-                <p>{playerTwo}</p> 
+                <p></p> 
             </div>
 
         </div>

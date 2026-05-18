@@ -30,13 +30,17 @@ export default function SelectPlayers({switchPlayer, handleSelect, mapPlayers, n
 
             {[...mapPlayers].map(
                  ([id, name]) => (
-                    <div key={id}> 
+                    <div key={id} className="player-selection"> 
                         <button
-                        className={ !nullButtons ? "btn-grad" : "btn-null"}
-                        // id of button passed to click handler here
-                        onClick={() => handleSelect(id, name)}
-                        id="button"
-                        >{name}</button>           
+                            className={ !nullButtons ? "btn-grad" : "btn-null"}
+                            // id of button passed to click handler here
+                            onClick={() => handleSelect(id, name)}
+                            id="button"
+                        >{name}</button>   
+                        <button 
+                            className="info-btn"
+                            
+                            >ⓘ</button>        
                     </div> 
                  ) 
                 )

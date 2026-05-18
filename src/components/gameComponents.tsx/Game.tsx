@@ -1,7 +1,7 @@
 import PlayerSelectionScreen from "./playerSelection/PlayerSelectionScreen"
 //import RandomPlayer from "./playerSelection/RandomPlayer"
 // import Rules from "./Rules"
-// import TeamOne from "./teamComponents/teamOne"
+import TeamOne from "./teamComponents/teamOne"
 // import InitialiseGame from "./InitialiseGame"
 import { useState } from "react"
 import "./buttons.css"
@@ -13,28 +13,12 @@ export default function Game(){
     const [selectPlayerScreen, setSelectPlayerScreen] = useState(true)
     const [selectPlayerOne, setSelectPlayerOne] = useState({name: ""})
     const [selectPlayerTwo, setSelectPlayerTwo] = useState({name: ""})
-    const [teamOne, setTeamOne] = useState([{one: ""}, {two: ""}])
+    const [teamOne, setTeamOne] = useState({one: "", two: ""})
 
     const [screenProgression, setScreenProgression] = useState(null)
     const [viewRules, setViewRules] = useState(false)
 
-    function handleSelection(finished: boolean){
-        if(finished){
-            setSelectPlayerScreen(prev => false)
-        }
-    }
-
-    function handlePlayers(){ // takes selected players from lifted state and sets them
-       
-    }
-
-    handlePlayers()
-
-    function handleScreenProgression(){
-        
-    }
-
-    // view rules
+        // view rules
     function handleRules(){
         setViewRules(prev => (prev ? prev : true))
         const changeOverLay = () => ({
@@ -43,29 +27,31 @@ export default function Game(){
         return(changeOverLay)
     }
 
+
+    function handlePlayers(name: string, switchval: boolean){ // takes selected players from lifted state and sets them
+        if(switchval){
+            setSelectPlayerOne(prev => ({...prev, name: name}))
+        }
+        else if(switchval){
+            setSelectPlayerTwo(prev => ({...prev, name: name}))
+        } 
+    }
+
+
+
     return(
         <div className="container">
             <div className="gameboard">
                 <div>
                     {/* header placeholder */}
                     
-                    {/* <InitialiseGame 
-                        screenProgress={handleScreenProgression}
-                    />
-                
-                    <Rules
-                        loadRules={viewRules}
-                        handleViewRules={handleRules}
-                    /> */}
-                    
                     {selectPlayerScreen ?
                         <PlayerSelectionScreen
-                        finalSelection={handleSelection}
-                        playerOne={setSelectPlayerOne}
-                        playerTwo={setSelectPlayerTwo}
-                    /> 
+                            teamPlayers={handlePlayers}
+                        /> 
                     : null}
 
+                    <TeamOne />
 
                     {/* footer placeholder */}
                 </div>

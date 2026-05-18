@@ -4,9 +4,14 @@ type ConfirmPlayerProps = {
   confirmButton: boolean;
 };
 
-export default function ConfirmPlayer({confirmName, confirmChoice, confirmButton}: ConfirmPlayerProps){
-    const handleYes = () => confirmChoice(true)
+export default function ConfirmPlayer({ confirmName, confirmChoice, confirmButton}: ConfirmPlayerProps){
+
+    const handleYes = () => {
+        confirmChoice(true)
+
+    }
     const handleNo = () => confirmChoice(false)
+
     return(
         <div>
             <div>
