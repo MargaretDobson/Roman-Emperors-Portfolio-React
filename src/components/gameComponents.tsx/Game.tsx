@@ -33,17 +33,20 @@ export default function Game(){
 
 
     function handlePlayers(name: string, switchval: boolean){ // takes selected players from lifted state and sets them
+        console.log(switchval)
         if(switchval){
             setSelectPlayerOne(prev => ({...prev, name: name}))
         }
-        else if(!switchval){
+        else if(switchval === false){
             setSelectPlayerTwo(prev => ({...prev, name: name}))
+            handleConfirmTeam(true)
         } 
 
     }
 
     function handleConfirmTeam(confirm: boolean){
-        setConfirmTeam(prev => true) 
+        console.log(selectPlayerOne)
+        console.log(selectPlayerTwo)
     }
 
     function handleButtonNull(isnull: boolean){
@@ -75,6 +78,7 @@ export default function Game(){
                         playerOne={selectPlayerOne}
                         playerTwo={selectPlayerTwo}
                         confirmTeamPlayers={handleConfirmTeam}
+                        buttonNuller={handleButtonNull}
                     />
 
                     {confirmTeam ? 

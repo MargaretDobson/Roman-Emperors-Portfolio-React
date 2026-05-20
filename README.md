@@ -3,6 +3,10 @@ This is a react portfolio project about significant roman emporers. NO vibe code
 
 ------CHANGES------
 
+21/05/2026
+
+-Fixed null button logic
+
 18/05/2026
 
 -Fixed logic that passes state between siblings

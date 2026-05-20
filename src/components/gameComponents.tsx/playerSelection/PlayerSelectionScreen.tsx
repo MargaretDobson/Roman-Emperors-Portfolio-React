@@ -20,22 +20,19 @@ export default function PlayerSelectionScreen({ teamPlayers, buttonNuller, butto
     const [showConfirmButton, setShowConfirmButton] = useState(false)
     const [handleMap, setHandleMap] = useState(new Map(romanEmperors.map(data => [data.id, data.name])))
 
-    // passed to confirm
-    
-
     
     
     function handleClick(id: number, name: string){ // player selection
         setPlayerName(prev => ({...prev, id: id, name: name})) 
         setShowConfirmButton(prev => true) // confirm button
-        buttonNuller(true) // set button to null while confirming choice 
+        buttonNuller(false) // set button to null while confirming choice 
     }
 
     function handleConfirm(choice: boolean){ // player confirmation
         const playerValues = {id: playerName.id, name: playerName.name}
 
         if(choice){ 
-                //setButtonIsNull(prev => false) // set button to null
+                buttonNuller(true) // set button to null
                 setSwitchPlayers(prev => !prev) 
                 setShowConfirmButton(prev => false)  
 
@@ -48,7 +45,7 @@ export default function PlayerSelectionScreen({ teamPlayers, buttonNuller, butto
                 if(switchPlayers){ // sets player 1 name
                     teamPlayers(playerValues.name, true)
                 } 
-                else if(!switchPlayers){ // sets player 2 name
+                else if(switchPlayers === false){ // sets player 2 name
                     teamPlayers(playerValues.name, false)
                 }
         }

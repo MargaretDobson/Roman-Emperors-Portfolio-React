@@ -5,7 +5,7 @@ type ConfirmPlayerProps = {
 
 export default function ConfirmTeam({ playerOne, playerTwo }: ConfirmPlayerProps){
 
-    const handleYes = () => {"Yes"}
+    const handleYes = () => {console.log("yes")}
     const handleNo = () => {"No"}
 
     
