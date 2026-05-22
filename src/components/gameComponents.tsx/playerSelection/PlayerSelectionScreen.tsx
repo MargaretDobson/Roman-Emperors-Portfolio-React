@@ -32,7 +32,7 @@ export default function PlayerSelectionScreen({ teamPlayers, buttonNuller, butto
         const playerValues = {id: playerName.id, name: playerName.name}
 
         if(choice){ 
-                buttonNuller(true) // set button to null
+                buttonNuller(true) // switch buttons on
                 setSwitchPlayers(prev => !prev) 
                 setShowConfirmButton(prev => false)  
 
@@ -51,8 +51,8 @@ export default function PlayerSelectionScreen({ teamPlayers, buttonNuller, butto
         }
 
         else if(!choice){ // handle no
-           // setButtonIsNull(prev => false)
             setShowConfirmButton(prev => false)
+            buttonNuller(true)
         }
     }
 
