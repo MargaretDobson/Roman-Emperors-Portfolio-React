@@ -5,14 +5,14 @@ type ConfirmPlayerProps = {
 
 export default function ConfirmTeam({ playerOne, playerTwo }: ConfirmPlayerProps){
 
-    const handleYes = () => {console.log("yes")}
+    const handleYes = () => {"yes"}
     const handleNo = () => {"No"}
 
     
     return(
         <>
             <p>Confirm Team? </p>
-            <ul>
+            <ul className="confirm-team">
                 <li>{playerOne.name}</li>
                 <li>{playerTwo.name}</li>
                 <button

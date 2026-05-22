@@ -21,7 +21,7 @@ export default function TeamOne({ playerOne, playerTwo, confirmTeamPlayers }: Co
     }
 
     return(
-        <div >
+        <div className="player-list">
             <div className="fontcolour">
                 <p>Player 1</p>
                 <p>{playerOne.name}</p> 

@@ -61,19 +61,23 @@ export default function PlayerSelectionScreen({ teamPlayers, buttonNuller, butto
     return(
 
             <div>
-                <SelectPlayers 
+                <div className="player-section-relative">
+
+                    <SelectPlayers 
                     handleSelect={handleClick}
                     switchPlayer={switchPlayers}
                     mapPlayers={handleMap}
                     nullButtons={buttonNullValue}
-
-                />
+                    />
                 
-                <ConfirmPlayer 
-                    confirmName={playerName.name} 
-                    confirmChoice={handleConfirm} 
-                    confirmButton={showConfirmButton}
-                />
+                    <ConfirmPlayer 
+                        confirmName={playerName.name} 
+                        confirmChoice={handleConfirm} 
+                        confirmButton={showConfirmButton}
+                    />
+
+                </div>
+                
             </div>
     )
 }

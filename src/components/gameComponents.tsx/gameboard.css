@@ -24,5 +24,32 @@
 
 .player-selection{
     display: flex;
+}
+
+.player-section-relative{
+    display: flex;
+    flex-direction: row;
+}
+
+.player-list{
+    color: white;
+    display: flex;
+    background-color: #6643b5;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    
+}
+
+.confirm-team {
+    color: white;
+    display: flex;
+    background-color: #6643b5;
+    flex-direction: row;
+    list-style-type: none;
+}
+
+.confirm-player {
+    display: flex;
 
 }
