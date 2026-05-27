@@ -1,5 +1,5 @@
 import PlayerSelectionScreen from "./playerSelection/PlayerSelectionScreen"
-//import RandomPlayer from "./playerSelection/RandomPlayer"
+import RandomPlayer from "./playerSelection/RandomPlayer"
 // import Rules from "./Rules"
 import TeamOne from "./teamComponents/teamOne"
 import ConfirmTeam from "./playerSelection/ConfirmTeam"
@@ -13,6 +13,8 @@ export default function Game(){
     // team one's initialisers
     const [selectPlayerScreen, setSelectPlayerScreen] = useState(true)
     const [buttonIsNull, setButtonIsNull] = useState(false)
+
+
     const [selectPlayerOne, setSelectPlayerOne] = useState({name: ""})
     const [selectPlayerTwo, setSelectPlayerTwo] = useState({name: ""})
 
@@ -22,7 +24,7 @@ export default function Game(){
     const [screenProgression, setScreenProgression] = useState(null)
     const [viewRules, setViewRules] = useState(false)
 
-        // view rules
+    // view rules
     function handleRules(){
         setViewRules(prev => (prev ? prev : true))
         const changeOverLay = () => ({
@@ -30,7 +32,6 @@ export default function Game(){
         })
         return(changeOverLay)
     }
-
 
     function handlePlayers(name: string, switchval: boolean){ // takes selected players from lifted state and sets them
         if(switchval){
@@ -88,7 +89,7 @@ export default function Game(){
                         />
                     : null}
 
-                    
+                    <RandomPlayer/>
 
                     {/* footer placeholder */}
                 </div>

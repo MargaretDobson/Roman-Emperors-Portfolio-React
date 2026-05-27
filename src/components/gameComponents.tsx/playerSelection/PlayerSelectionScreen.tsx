@@ -28,6 +28,15 @@ export default function PlayerSelectionScreen({ teamPlayers, buttonNuller, butto
         buttonNuller(false) // set button to null while confirming choice 
     }
 
+    //update map after selecting player
+    function updateConfirmMap(id: number){
+        setHandleMap(prev => { 
+            const updated = new Map(prev)
+            updated.delete(id)
+            return updated
+        })
+    }
+
     function handleConfirm(choice: boolean){ // player confirmation
         const playerValues = {id: playerName.id, name: playerName.name}
 
@@ -36,27 +45,21 @@ export default function PlayerSelectionScreen({ teamPlayers, buttonNuller, butto
                 setSwitchPlayers(prev => !prev) 
                 setShowConfirmButton(prev => false)  
 
-                setHandleMap(prev => { // delete player from map
-                    const updated = new Map(prev)
-                    updated.delete(playerValues.id)
-                    return updated
-                })
+                updateConfirmMap(playerValues.id)
 
                 if(switchPlayers){ // sets player 1 name
                     teamPlayers(playerValues.name, true)
                 } 
                 else if(switchPlayers === false){ // sets player 2 name
                     teamPlayers(playerValues.name, false)
+                    updateConfirmMap(playerValues.id)
                 }
         }
-
         else if(!choice){ // handle no
             setShowConfirmButton(prev => false)
             buttonNuller(true)
         }
     }
-
-
 
     return(
 
@@ -64,10 +67,10 @@ export default function PlayerSelectionScreen({ teamPlayers, buttonNuller, butto
                 <div className="player-section-relative">
 
                     <SelectPlayers 
-                    handleSelect={handleClick}
-                    switchPlayer={switchPlayers}
-                    mapPlayers={handleMap}
-                    nullButtons={buttonNullValue}
+                        handleSelect={handleClick}
+                        switchPlayer={switchPlayers}
+                        mapPlayers={handleMap}
+                        nullButtons={buttonNullValue}
                     />
                 
                     <ConfirmPlayer 

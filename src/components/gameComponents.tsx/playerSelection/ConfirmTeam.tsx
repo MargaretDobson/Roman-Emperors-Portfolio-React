@@ -11,16 +11,19 @@ export default function ConfirmTeam({ playerOne, playerTwo }: ConfirmPlayerProps
     
     return(
         <>
-            <p>Confirm Team? </p>
+            
             <ul className="confirm-team">
-                <li>{playerOne.name}</li>
-                <li>{playerTwo.name}</li>
-                <button
-                    onClick={handleYes}
-                >Yes</button>
-                <button
-                    onClick={handleNo}
-                >No</button>
+                <p className="fontcolour">Confirm Team? </p>
+                    <li>{playerOne.name}</li>
+                    <li>{playerTwo.name}</li>
+                <button className="btn-grad"
+                    onClick={handleYes}>
+                        Yes
+                </button>
+                <button className="btn-grad"
+                    onClick={handleNo}>
+                        No
+                </button>
             </ul>
             
         </>
