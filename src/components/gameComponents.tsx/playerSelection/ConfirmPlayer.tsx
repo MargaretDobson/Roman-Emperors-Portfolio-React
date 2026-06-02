@@ -6,10 +6,7 @@ type ConfirmPlayerProps = {
 
 export default function ConfirmPlayer({ confirmName, confirmChoice, confirmButton}: ConfirmPlayerProps){
 
-    const handleYes = () => {
-        confirmChoice(true)
-
-    }
+    const handleYes = () => { confirmChoice(true) }
     const handleNo = () => confirmChoice(false)
 
     return(

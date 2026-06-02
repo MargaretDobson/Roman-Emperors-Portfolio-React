@@ -3,6 +3,10 @@ This is a react portfolio project about significant roman emporers. NO vibe code
 
 ------CHANGES------
 
+03/06/2026
+
+-Added confirm logic for when final selection is finished
+
 23/05/2026
 
 -Catch up on styling components

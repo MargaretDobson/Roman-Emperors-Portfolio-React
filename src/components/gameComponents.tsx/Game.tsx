@@ -7,6 +7,7 @@ import ConfirmTeam from "./playerSelection/ConfirmTeam"
 import { useState } from "react"
 import "./buttons.css"
 import "./gameboard.css"
+
 //game board that renders
 
 export default function Game(){
@@ -47,6 +48,7 @@ export default function Game(){
 
     function handleConfirmTeam(confirm: boolean){
         setConfirmTeam(prev => true)
+        console.log()
     }
 
     function handleButtonNull(isnull: boolean){
@@ -89,7 +91,9 @@ export default function Game(){
                         />
                     : null}
 
-                    <RandomPlayer/>
+                    <RandomPlayer
+
+                    />
 
                     {/* footer placeholder */}
                 </div>

@@ -35,6 +35,8 @@ export default function PlayerSelectionScreen({ teamPlayers, buttonNuller, butto
             updated.delete(id)
             return updated
         })
+        console.log(handleMap)
+
     }
 
     function handleConfirm(choice: boolean){ // player confirmation
